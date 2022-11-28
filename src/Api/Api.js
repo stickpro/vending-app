@@ -7,5 +7,7 @@ export async function  loadProducts() {
 }
 
 export async function createOrder(product, user) {
+    console.log(product)
+    console.log(user)
     const data = await fetch(`${API}/api/v1/order`)
 }

@@ -13,19 +13,13 @@ function App() {
     loadProducts().then((response) => setProducts(response))
   }, [])
 
-  function onCheckout(product) {
-    tg.MainButton.text = "Получить " + product.name;
-    tg.MainButton.onClick(createOrder(product, user))
-    tg.MainButton.show();
-  };
-
   return (
     <div className="App">
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
             { products && products.map((product) => {
-              return (<Card product={product} onCheckout={onCheckout} key={product.ID}/>)
+              return (<Card product={product} onCheckout={() => createOrder(product, user)} key={product.ID}/>)
             }) }
           </div>
         </div>
