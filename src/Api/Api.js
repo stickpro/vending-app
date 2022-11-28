@@ -5,3 +5,7 @@ export async function  loadProducts() {
     const products = await data.json()
     return products 
 }
+
+export async function createOrder(product, user) {
+    const data = await fetch(`${API}/api/v1/order`)
+}
