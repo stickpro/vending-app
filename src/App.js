@@ -13,7 +13,7 @@ function App() {
     loadProducts().then((response) => setProducts(response))
   }, [])
 
-  const onCheckout = (product) => {
+  function onCheckout(product) {
     tg.MainButton.text = "Получить " + product.name;
     tg.MainButton.onClick(createOrder(product, user))
     tg.MainButton.show();
