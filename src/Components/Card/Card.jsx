@@ -4,7 +4,7 @@ const user = tg.initDataUnsafe
 
 function Card({ product }) {
     const onCheckout = (product) => {
-        tg.MainButton.text = "Получить" + product.name;
+        tg.MainButton.text = "Получить " + product.name;
         tg.MainButton.onClick(createOrder(product, user))
         tg.MainButton.show();
       };
