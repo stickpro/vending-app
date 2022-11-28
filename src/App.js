@@ -1,21 +1,25 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { useState, useEffect } from "react"
+import { loadProducts } from './Api/Api.js'
+import Card from "./Components/Card/Card";
 
 function App() {
+  const [products, setProducts] = useState(null);
+
+  useEffect(() => {
+    loadProducts().then((response) => setProducts(response))
+  }, [])
+
   return (
     <div className="App">
-      <div class="grid grid-cols-4 gap-4">
-        <div>01</div>
-        <div>02</div>
-        <div>03</div>
-        <div>04</div>
-        <div>05</div>
-        <div>06</div>
-        <div>07</div>
-        <div>08</div>
-        <div>09</div>
-        <div>10</div>
-        <div>11</div>
+      <div className="bg-white">
+        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="grid grid-cols-4 gap-4">
+            { products && products.map((product) => {
+              return (<Card product={product} key={product.ID}/>)
+            }) }
+          </div>
+        </div>
       </div>
     </div>
   );
