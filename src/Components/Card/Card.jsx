@@ -1,15 +1,5 @@
-import { createOrder } from '../../Api/Api.js'
-const tg = window.Telegram.WebApp;
-const user = tg.initDataUnsafe
 
-function Card({ product }) {
-    const onCheckout = (product) => {
-        tg.MainButton.text = "Получить " + product.name;
-        tg.MainButton.onClick(createOrder(product, user))
-        tg.MainButton.show();
-      };
-    
-    
+function Card({ product, onCheckout }) {    
     return (
         <div className="group relative">
         <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
